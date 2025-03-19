@@ -3,7 +3,6 @@
 from pydantic import BaseModel, Field
 from datetime import date
 from typing import Optional
-from pydantic.validators import str_validator
 
 class Anuncio(BaseModel):
     Organizador: int = Field(
@@ -11,7 +10,7 @@ class Anuncio(BaseModel):
     )
     Ano_Mes: str = Field(
         description="Ano e mês referente ao período do anúncio.",
-        regex=r"^\d{4} \| (Janeiro|Fevereiro|Março|Abril|Maio|Junho|Julho|Agosto|Setembro|Outubro|Novembro|Dezembro)$"
+        pattern=r"^\d{4} \| (Janeiro|Fevereiro|Março|Abril|Maio|Junho|Julho|Agosto|Setembro|Outubro|Novembro|Dezembro)$"
     )
     Dia_da_Semana: str = Field(
         description="Dia da semana em que o anúncio foi veiculado.",
@@ -44,28 +43,32 @@ class Anuncio(BaseModel):
         default=None,
         description="Número de cliques no link do anúncio.",
         ge=0,
-        le=10000
+        nulable=True
     )
     Impressions: Optional[int] = Field(
         default=None,
         description="Número de impressões do anúncio.",
         ge=0,
-        le=100000
+        nulable=True
     )
     Conversions: Optional[int] = Field(
         default=None,
         description="Número de conversões geradas pelo anúncio.",
         ge=0,
-        le=10000
+        nulable=True
     )
-    Segmentacao: str = Field(
+    Segmentacao: Optional[str] = Field(
+        default=None,
         description="Segmentação do público-alvo do anúncio.",
         enum=["Full", "Rmkt_All_90dias", "Interesses em Ferramentas e Tecnologias de Dados", 
-              "LookALike_Compradores_1", "Interesses_Dados"]
+              "LookALike_Compradores_1", "Interesses_Dados"],
+        nulable=True
     )
-    Tipo_de_Anuncio: str = Field(
+    Tipo_de_Anuncio: Optional[str] = Field(
+        default=None,
         description="Tipo de anúncio (ex: Estático, Vídeo, Carrossel).",
-        enum=["Video", "Estático"]
+        enum=["Video", "Estático"],
+        nulable=True
     )
     Fase: str = Field(
         description="Fase da campanha em que o anúncio foi veiculado.",
