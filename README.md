@@ -1,16 +1,16 @@
-# Validação e Análise de Dados 
+# Ad Campaign Data Analysis
 
-Este projeto é uma ferramenta de análise e validação de dados de anúncios, desenvolvida para ajudar na gestão e análise de campanhas de marketing. Ele inclui funcionalidades para validação de dados, geração de relatórios exploratórios e visualização de KPIs.
+This project is a tool for validating and analyzing ad campaign data, designed to assist in managing and evaluating marketing campaigns. It includes features for data validation, exploratory reporting, and KPI visualization.
 
-## Funcionalidades
+## Features
 
-1. **Validação de Dados**: Utiliza o `pydantic` para validar os dados de entrada conforme um contrato de dados definido.
-2. **Análise Exploratória**: Gera um relatório exploratório inicial usando `ydata_profiling`.
-3. **Dashboard Interativo**: Um dashboard desenvolvido com `Streamlit` que permite a visualização de KPIs e análise interativa dos dados.
+1. **Data Validation**: Uses `pydantic` to validate input data against a defined data contract.
+2. **Exploratory Analysis**: Generates an initial exploratory report using `ydata_profiling`.
+3. **Interactive Dashboard**: A dashboard built with `Streamlit` for KPI visualization and interactive data analysis.
 
-## Estrutura do Projeto
+## Project Structure
 
-- **main.py**: Script principal para gerar o relatório exploratório.
-- **validador.py**: Contém o modelo `Anuncio` para validação dos dados de entrada.
-- **app.py**: Aplicação Streamlit para validação de arquivos CSV.
-- **dashboard.py**: Dashboard interativo para análise de KPIs de anúncios.
+- **main.py**: Main script to generate the exploratory report.
+- **validador.py**: Contains the `Anuncio` model for validating input data.
+- **app.py**: Streamlit application for validating CSV files.
+- **dashboard.py**: Interactive dashboard for analyzing ad campaign KPIs.
